@@ -41,11 +41,11 @@ $("textarea").height($("textarea")[0].scrollHeight);
 $('.speaker-button').click(function() {
   // if volume off, log selected text
   var icon = $(this).find('i');
+  // not speaking. Start speaking
   if (icon.hasClass('fa-volume-off')) {
     var text = window.getSelection().toString();
     console.log(text);
-var selectedVoice = voices.options[voices.selectedIndex];
-
+    var selectedVoice = voices.options[voices.selectedIndex];
     // Create the utterance object setting the chosen parameters
     var utterance = new SpeechSynthesisUtterance();
     utterance.text = text;
@@ -59,7 +59,7 @@ var selectedVoice = voices.options[voices.selectedIndex];
     };
     utterance.onend = function() {
       console.log('Speaker finished');
-      // change
+      icon.toggleClass('fa-volume-off fa-volume-up');
     };
 
     window.speechSynthesis.speak(utterance);
@@ -75,7 +75,9 @@ var selectedVoice = voices.options[voices.selectedIndex];
 $('.microphone-button').click(function() {
   var icon = $(this).find('i');
   if (icon.hasClass('fa-microphone-slash')) {
-    console.log(window.getSelection().toString());
+    var text = window.getSelection().toString();
+    var str = 'POSTing ' + text + ' and sound file to URL'
+    console.log(str);
   }
   icon.toggleClass('fa-microphone fa-microphone-slash');
 });
