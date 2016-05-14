@@ -63,65 +63,57 @@
 a.c1 {font-weight: normal;}
     </style>
   </head>
-  <body class="" id="grid">
-    <div class="browser-landing" id="main">
-      <div class="compact marquee-stacked" id="marquee">
-        <div class="marquee-copy">
-          <h1>
-            <a class="c1" href="http://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html">Web
-            Speech API</a> Demonstration
-          </h1>
-        </div>
-      </div>
-      <div class="compact marquee">
-        <div id="info">
-          <p id="info_start">
-            Click on the microphone icon and begin speaking for as long as you like.
-          </p>
-          <p id="info_speak_now" style="display:none">
-            Speak now.
-          </p>
-          <p id="info_no_speech" style="display:none">
-            No speech was detected. You may need to adjust your <a href=
-            "//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">microphone
-            settings</a>.
-          </p>
-          <p id="info_no_microphone" style="display:none">
-            No microphone was found. Ensure that a microphone is installed and that
-            <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
-            microphone settings</a> are configured correctly.
-          </p>
-          <p id="info_allow" style="display:none">
-            Click the "Allow" button above to enable your microphone.
-          </p>
-          <p id="info_denied" style="display:none">
-            Permission to use microphone was denied.
-          </p>
-          <p id="info_blocked" style="display:none">
-            Permission to use microphone is blocked. To change, go to
-            chrome://settings/contentExceptions#media-stream
-          </p>
-          <p id="info_upgrade" style="display:none">
-            Web Speech API is not supported by this browser. Upgrade to <a href=
-            "//www.google.com/chrome">Chrome</a> version 25 or later.
-          </p>
-        </div>
-        <div id="div_start">
-          <button id="start_button" onclick="startButton(event)"><img alt="Start" id="start_img"
-          src="/intl/en/chrome/assets/common/images/content/mic.gif"></button>
-        </div>
-        <div id="results">
-          <span class="final" id="final_span"></span> <span class="interim" id=
-          "interim_span"></span>
-        </div>
-        <div class="compact marquee" id="div_language">
-          <select id="select_language" onchange="updateCountry()">
-            </select>&nbsp;&nbsp; <select id="select_dialect">
-            </select>
-        </div>
-      </div>
+  <body>
+  <h1>
+    <a class="c1" href="http://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html">Web
+    Speech API</a> Demonstration
+  </h1>
+  <div class="compact marquee">
+    <div id="info">
+      <p id="info_start">
+        Click on the microphone icon and begin speaking for as long as you like.
+      </p>
+      <p id="info_speak_now" style="display:none">
+        Speak now.
+      </p>
+      <p id="info_no_speech" style="display:none">
+        No speech was detected. You may need to adjust your <a href=
+        "//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">microphone
+        settings</a>.
+      </p>
+      <p id="info_no_microphone" style="display:none">
+        No microphone was found. Ensure that a microphone is installed and that
+        <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+        microphone settings</a> are configured correctly.
+      </p>
+      <p id="info_allow" style="display:none">
+        Click the "Allow" button above to enable your microphone.
+      </p>
+      <p id="info_denied" style="display:none">
+        Permission to use microphone was denied.
+      </p>
+      <p id="info_blocked" style="display:none">
+        Permission to use microphone is blocked. To change, go to
+        chrome://settings/contentExceptions#media-stream
+      </p>
+      <p id="info_upgrade" style="display:none">
+        Web Speech API is not supported by this browser. Upgrade to <a href=
+        "//www.google.com/chrome">Chrome</a> version 25 or later.
+      </p>
     </div>
-</script> <script>
+    <div id="div_start">
+      <button id="start_button" onclick="startButton(event)"><img alt="Start" id="start_img"
+      src="/intl/en/chrome/assets/common/images/content/mic.gif"></button>
+    </div>
+    <div id="results">
+      <span class="final" id="final_span"></span> <span class="interim" id=
+      "interim_span"></span>
+    </div>
+    <select id="select_language" onchange="updateCountry()">
+      </select>&nbsp;&nbsp; <select id="select_dialect">
+      </select>
+
+<script>
 var langs =
 [ ['Deutsch',         ['de-DE']],
  ['English',         ['en-AU', 'Australia'],
@@ -228,8 +220,7 @@ if (!('webkitSpeechRecognition' in window)) {
     final_transcript = capitalize(final_transcript);
     final_span.innerHTML = linebreak(final_transcript);
     interim_span.innerHTML = linebreak(interim_transcript);
-    if (final_transcript || interim_transcript) {
-    }
+    console.log('final transcript is:', final_transcript);
   };
 }
 
