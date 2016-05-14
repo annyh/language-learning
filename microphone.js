@@ -74,14 +74,13 @@ if (!('webkitSpeechRecognition' in window)) {
 
   recognition.onend = function() {
     recognizing = false;
-    if (ignore_onend) {
-      return;
-    }
     // image to off
     if (!final_transcript) {
-      showInfo(info_start);
       return;
     }
+    var text = window.getSelection().toString();
+    console.log('final transcript is:', final_transcript, 'expected ',text);
+    doGrade(final_transcript, text);
   };
 
   recognition.onresult = function(event) {
@@ -102,9 +101,6 @@ if (!('webkitSpeechRecognition' in window)) {
     final_transcript = capitalize(final_transcript);
     final_span.innerHTML = linebreak(final_transcript);
     interim_span.innerHTML = linebreak(interim_transcript);
-    var text = window.getSelection().toString();
-    console.log('final transcript is:', final_transcript, 'expected ',text);
-    doGrade(final_transcript, text);
   };
 }
 
