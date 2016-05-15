@@ -10,7 +10,7 @@ Contains the fundamentals of language learning:
 - Machine reads user-provided content
 - User gets near real-time feedback on his/her pronounciation
 
-Uses the browser's [Web Speech API](http://caniuse.com/#search=speech), and [Speech Synthesis API](http://caniuse.com/#feat=speech-synthesis)
+Uses the browser's [Web Speech API](http://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html), and [Speech Synthesis API](http://caniuse.com/#feat=speech-synthesis)
 
 ###How to use
 
@@ -33,3 +33,4 @@ Uses the browser's [Web Speech API](http://caniuse.com/#search=speech), and [Spe
 
 ###Inspired by
 - [Google's Web Speech API demo](https://www.google.com/intl/en/chrome/demos/speech.html)
+- [Aurelio De Rosa's Speech Synthesis demo](http://output.jsbin.com/bubamo)

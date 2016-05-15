@@ -1,3 +1,7 @@
+/**
+ * Uses webkitSpeechRecognition and user-provided text to evaluate the user's pronounciation.
+*/
+
 var langs = [
     ['Deutsch', ['de-DE']],
     ['English', ['en-AU', 'Australia'],

@@ -2,125 +2,36 @@
 <html>
 
 <head>
-  <meta name="description" content="does not de-select the text">
-  <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Pronounciation Practice</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="page.css">
+    <meta name="description" content="does not de-select the text">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Pronounciation Practice</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="page.css">
 </head>
 
 <body>
-  <h1>Pronounciation practice</h1>
-  <textarea name="pronounce_txt" id="pronounce_txt" class='boxsizingBorder'>
-    Eine Katze und eine Maus schließen Bekanntschaft. Die Katze gesteht der Maus Freundschaft und gar große Liebe, so dass die Maus einwilligt, ein gemeinsames Haus zu beziehen. Gemeinsam beschließen sie für den Winter einen Vorrat anzulegen, damit sie in der kalten Jahreszeit nicht Hunger leiden müssen.
-  </textarea>
-  <div>
-    <div class="field-wrapper">
-      <label for="voice">Voice:</label>
-      <select id="voice">
-        <option value="de-DE" data-voice-uri="Google Deutsch">Google Deutsch (default)</option>
-        <option value="en-US" data-voice-uri="Google US English">Google US English</option>
-        <option value="en-GB" data-voice-uri="Google UK English Female">Google UK English Female</option>
-        <option value="en-GB" data-voice-uri="Google UK English Male">Google UK English Male</option>
-        <option value="es-ES" data-voice-uri="Google español">Google español</option>
-        <option value="es-US" data-voice-uri="Google español de Estados Unidos">Google español de Estados Unidos</option>
-        <option value="fr-FR" data-voice-uri="Google français">Google français</option>
-        <option value="hi-IN" data-voice-uri="Google हिन्दी">Google हिन्दी</option>
-        <option value="id-ID" data-voice-uri="Google Bahasa Indonesia">Google Bahasa Indonesia</option>
-        <option value="it-IT" data-voice-uri="Google italiano">Google italiano</option>
-        <option value="ja-JP" data-voice-uri="Google 日本語">Google 日本語</option>
-        <option value="ko-KR" data-voice-uri="Google 한국의">Google 한국의</option>
-        <option value="nl-NL" data-voice-uri="Google Nederlands">Google Nederlands</option>
-        <option value="pl-PL" data-voice-uri="Google polski">Google polski</option>
-        <option value="pt-BR" data-voice-uri="Google português do Brasil">Google português do Brasil</option>
-        <option value="ru-RU" data-voice-uri="Google русский">Google русский</option>
-        <option value="zh-CN" data-voice-uri="Google&nbsp;普通话（中国大陆）">Google&nbsp;普通话（中国大陆）</option>
-        <option value="zh-HK" data-voice-uri="Google&nbsp;粤語（香港）">Google&nbsp;粤語（香港）</option>
-        <option value="zh-TW" data-voice-uri="Google 國語（臺灣）">Google 國語（臺灣）</option>
-        <option value="en-US" data-voice-uri="Alex">Alex</option>
-        <option value="en-US" data-voice-uri="Agnes">Agnes</option>
-        <option value="en-US" data-voice-uri="Albert">Albert</option>
-        <option value="it-IT" data-voice-uri="Alice">Alice</option>
-        <option value="sv-SE" data-voice-uri="Alva">Alva</option>
-        <option value="fr-CA" data-voice-uri="Amelie">Amelie</option>
-        <option value="de-DE" data-voice-uri="Anna">Anna</option>
-        <option value="en-US" data-voice-uri="Bad News">Bad News</option>
-        <option value="en-US" data-voice-uri="Bahh">Bahh</option>
-        <option value="en-US" data-voice-uri="Bells">Bells</option>
-        <option value="en-US" data-voice-uri="Boing">Boing</option>
-        <option value="en-US" data-voice-uri="Bruce">Bruce</option>
-        <option value="en-US" data-voice-uri="Bubbles">Bubbles</option>
-        <option value="he-IL" data-voice-uri="Carmit">Carmit</option>
-        <option value="en-US" data-voice-uri="Cellos">Cellos</option>
-        <option value="id-ID" data-voice-uri="Damayanti">Damayanti</option>
-        <option value="en-GB" data-voice-uri="Daniel">Daniel</option>
-        <option value="en-US" data-voice-uri="Deranged">Deranged</option>
-        <option value="es-AR" data-voice-uri="Diego">Diego</option>
-        <option value="nl-BE" data-voice-uri="Ellen">Ellen</option>
-        <option value="en" data-voice-uri="Fiona">Fiona</option>
-        <option value="en-US" data-voice-uri="Fred">Fred</option>
-        <option value="en-US" data-voice-uri="Good News">Good News</option>
-        <option value="en-US" data-voice-uri="Hysterical">Hysterical</option>
-        <option value="ro-RO" data-voice-uri="Ioana">Ioana</option>
-        <option value="pt-PT" data-voice-uri="Joana">Joana</option>
-        <option value="en-US" data-voice-uri="Junior">Junior</option>
-        <option value="th-TH" data-voice-uri="Kanya">Kanya</option>
-        <option value="en-AU" data-voice-uri="Karen">Karen</option>
-        <option value="en-US" data-voice-uri="Kathy">Kathy</option>
-        <option value="ja-JP" data-voice-uri="Kyoko">Kyoko</option>
-        <option value="sk-SK" data-voice-uri="Laura">Laura</option>
-        <option value="hi-IN" data-voice-uri="Lekha">Lekha</option>
-        <option value="pt-BR" data-voice-uri="Luciana">Luciana</option>
-        <option value="hu-HU" data-voice-uri="Mariska">Mariska</option>
-        <option value="zh-TW" data-voice-uri="Mei-Jia">Mei-Jia</option>
-        <option value="el-GR" data-voice-uri="Melina">Melina</option>
-        <option value="ru-RU" data-voice-uri="Milena">Milena</option>
-        <option value="en-IE" data-voice-uri="Moira">Moira</option>
-        <option value="es-ES" data-voice-uri="Monica">Monica</option>
-        <option value="nb-NO" data-voice-uri="Nora">Nora</option>
-        <option value="es-MX" data-voice-uri="Paulina">Paulina</option>
-        <option value="en-US" data-voice-uri="Pipe Organ">Pipe Organ</option>
-        <option value="en-US" data-voice-uri="Princess">Princess</option>
-        <option value="en-US" data-voice-uri="Ralph">Ralph</option>
-        <option value="en-US" data-voice-uri="Samantha">Samantha</option>
-        <option value="da-DK" data-voice-uri="Sara">Sara</option>
-        <option value="fi-FI" data-voice-uri="Satu">Satu</option>
-        <option value="zh-HK" data-voice-uri="Sin-ji">Sin-ji</option>
-        <option value="ar-SA" data-voice-uri="Tarik">Tarik</option>
-        <option value="en-ZA" data-voice-uri="Tessa">Tessa</option>
-        <option value="fr-FR" data-voice-uri="Thomas">Thomas</option>
-        <option value="zh-CN" data-voice-uri="Ting-Ting">Ting-Ting</option>
-        <option value="en-US" data-voice-uri="Trinoids">Trinoids</option>
-        <option value="en-IN" data-voice-uri="Veena">Veena</option>
-        <option value="en-US" data-voice-uri="Vicki">Vicki</option>
-        <option value="en-US" data-voice-uri="Victoria">Victoria</option>
-        <option value="en-US" data-voice-uri="Whisper">Whisper</option>
-        <option value="nl-NL" data-voice-uri="Xander">Xander</option>
-        <option value="tr-TR" data-voice-uri="Yelda">Yelda</option>
-        <option value="ko-KR" data-voice-uri="Yuna">Yuna</option>
-        <option value="en-US" data-voice-uri="Zarvox">Zarvox</option>
-        <option value="pl-PL" data-voice-uri="Zosia">Zosia</option>
-        <option value="cs-CZ" data-voice-uri="Zuzana">Zuzana</option>
-      </select>
+    <h1>Pronounciation practice</h1>
+    <textarea name="pronounce_txt" id="pronounce_txt" class='boxsizingBorder'>
+        Eine Katze und eine Maus schließen Bekanntschaft. Die Katze gesteht der Maus Freundschaft und gar große Liebe, so dass die Maus einwilligt, ein gemeinsames Haus zu beziehen. Gemeinsam beschließen sie für den Winter einen Vorrat anzulegen, damit sie in der kalten Jahreszeit nicht Hunger leiden müssen.
+    </textarea>
+    <div>
+        <div class="field-wrapper">
+            <label for="voice">Voice:</label>
+            <select id="voice">
+            </select>
+        </div>
+        <div class="field-wrapper">
+            <label for="rate">Rate (0.1 - 10):</label>
+            <input type="number" id="rate" min="0.1" max="10" value="1" step="any"> </div>
+        <div class="field-wrapper">
+            <label for="pitch">Pitch (0.1 - 2):</label>
+            <input type="number" id="pitch" min="0.1" max="2" value="1" step="any"> </div>
+        <button id='speaker-button' class='speaker-button'>
+            <i class="fa fa-volume-off fa-5x" id='speaker-icon' aria-hidden="true"></i>
+        </button>
     </div>
-    <div class="field-wrapper">
-      <label for="rate">Rate (0.1 - 10):</label>
-      <input type="number" id="rate" min="0.1" max="10" value="1" step="any"> </div>
-    <div class="field-wrapper">
-      <label for="pitch">Pitch (0.1 - 2):</label>
-      <input type="number" id="pitch" min="0.1" max="2" value="1" step="any"> </div>
-    <button id='speaker-button' class='speaker-button'><i class="fa fa-volume-off fa-5x" aria-hidden="true"></i>
-    </button>
-    <button class='microphone-button'>
-        <i class="fa fa-microphone fa-5x" aria-hidden="true"></i>
-    </button>
-  </div>
-  <!-- TODO: move to README -->
-  <p>Inspired by <a href="http://output.jsbin.com/bubamo">Aurelio De Rosa's demo</a>.</p>
-  <p><a href="http://jsbin.com/rigekib/edit?html,css,js">Initial source code</a></p>
-  <script src="speaker.js"></script>
+    <script src="speaker.js"></script>
 </body>
 
 </html>
