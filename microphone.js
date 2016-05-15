@@ -99,8 +99,6 @@ if (!('webkitSpeechRecognition' in window)) {
       }
     }
     final_transcript = capitalize(final_transcript);
-    final_span.innerHTML = linebreak(final_transcript);
-    interim_span.innerHTML = linebreak(interim_transcript);
   };
 }
 
@@ -159,8 +157,6 @@ start_button.onclick = function() {
   recognition.lang = select_dialect.value;
   recognition.start();
   ignore_onend = false;
-  final_span.innerHTML = '';
-  interim_span.innerHTML = '';
   showInfo('Click the "Allow" button above to enable your microphone.');
   start_timestamp = new Date(); // get timestamp
 }

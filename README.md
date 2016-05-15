@@ -31,3 +31,5 @@ Uses the browser's [Web Speech API](http://caniuse.com/#search=speech), and [Spe
 2. start server with ```python -m SimpleHTTPServer```
 3. access the app on ```http://localhost:8000/index.html```
 
+###Inspired by
+- [Google's Web Speech API demo](https://www.google.com/intl/en/chrome/demos/speech.html)
