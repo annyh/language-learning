@@ -13,6 +13,7 @@ Contains the fundamentals of language learning:
 Uses the browser's [Web Speech API](http://caniuse.com/#search=speech), and [Speech Synthesis API](http://caniuse.com/#feat=speech-synthesis)
 
 ###How to use
+
 0. Copy a piece of text (a few sentences) to practice. Choose the languge of the text in the ```Voice``` dropdown.
 1. Put test to be read inside the text box.
 2. Highlight the text to pronounce. See ```Limitations``` section below.

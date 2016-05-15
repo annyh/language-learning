@@ -46,17 +46,17 @@ if (!('webkitSpeechRecognition' in window)) {
   recognition.onstart = function() {
     recognizing = true;
     showInfo('Speak now.');
-    // image to on
+    turnMicrophoneOn(true);
   };
 
   recognition.onerror = function(event) {
     if (event.error == 'no-speech') {
-      // image to off
+      turnMicrophoneOn(false);
       showInfo('No speech was detected. You may need to adjust your microphone settings');
       ignore_onend = true;
     }
     if (event.error == 'audio-capture') {
-      // image to off
+      turnMicrophoneOn(false);
       showInfo('No microphone was found. Ensure that a microphone is installed and that  ' +
         'the microphone is configured correctly');
       ignore_onend = true;
@@ -74,7 +74,7 @@ if (!('webkitSpeechRecognition' in window)) {
 
   recognition.onend = function() {
     recognizing = false;
-    // image to off
+    turnMicrophoneOn(false);
     if (!final_transcript) {
       return;
     }
@@ -102,6 +102,13 @@ if (!('webkitSpeechRecognition' in window)) {
     final_span.innerHTML = linebreak(final_transcript);
     interim_span.innerHTML = linebreak(interim_transcript);
   };
+}
+
+// if bool is true, turn microphone on
+// else turn microphone off
+function turnMicrophoneOn(bool) {
+  document.getElementById('speaker_icon').className = bool ?
+  'fa fa-microphone fa-5x' : 'fa fa-microphone-slash fa-5x';
 }
 
 // given two strings, determine if they are the same
