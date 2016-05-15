@@ -1,40 +1,9 @@
 /**
  * Uses webkitSpeechRecognition and user-provided text to evaluate the user's pronounciation.
-*/
+ */
 
-var langs = [
-    ['Deutsch', ['de-DE']],
-    ['English', ['en-AU', 'Australia'],
-        ['en-CA', 'Canada'],
-        ['en-IN', 'India'],
-        ['en-NZ', 'New Zealand'],
-        ['en-ZA', 'South Africa'],
-        ['en-GB', 'United Kingdom'],
-        ['en-US', 'United States']
-    ]
-];
-
-for (var i = 0; i < langs.length; i++) {
-    select_language.options[i] = new Option(langs[i][0], i);
-}
-select_language.selectedIndex = 0;
-updateCountry();
-select_dialect.selectedIndex = 0;
-
-
-var info_start = 'Click on the microphone icon and begin speaking for as long as you like.';
+var info_start = 'Click on the microphone icon and begin speaking';
 showInfo(info_start);
-
-function updateCountry() {
-    for (var i = select_dialect.options.length - 1; i >= 0; i--) {
-        select_dialect.remove(i);
-    }
-    var list = langs[select_language.selectedIndex];
-    for (var i = 1; i < list.length; i++) {
-        select_dialect.options.add(new Option(list[i][1], list[i][0]));
-    }
-    select_dialect.style.visibility = list[1].length == 1 ? 'hidden' : 'visible';
-}
 
 var final_transcript = '';
 var recognizing = false;
@@ -99,7 +68,6 @@ if (!('webkitSpeechRecognition' in window)) {
                 interim_transcript += event.results[i][0].transcript;
             }
         }
-        final_transcript = capitalize(final_transcript);
     };
 }
 
@@ -117,14 +85,20 @@ function turnMicrophoneOn(bool) {
         'fa fa-microphone fa-5x' : 'fa fa-microphone-slash fa-5x';
 }
 
-// given two strings, determine if they are the same
-function doGrade(actual, expected) {
+// given a string, return it without leading/trailing whitespace
+// turn to lowercase
+function processStr(str) {
     if (typeof String.prototype.trim != 'function') { // detect native implementation
         String.prototype.trim = function() {
             return this.replace(/^\s+/, '').replace(/\s+$/, '');
         };
     }
-    if (actual.trim() === expected.trim()) {
+    return str.trim().toLowerCase();
+}
+
+// given two strings, determine if they are the same
+function doGrade(actual, expected) {
+    if (processStr(actual) === processStr(expected)) {
         showMessage('SUCESS!', true);
     } else {
         showMessage('Not quite. Received ' + actual +
@@ -146,12 +120,6 @@ function linebreak(s) {
 
 var first_char = /\S/;
 
-function capitalize(s) {
-    return s.replace(first_char, function(m) {
-        return m.toUpperCase();
-    });
-}
-
 preventDeselectizeText(start_button);
 
 function preventDeselectizeText(elem) {
@@ -166,7 +134,7 @@ start_button.onclick = function() {
         return;
     }
     final_transcript = '';
-    recognition.lang = select_dialect.value;
+    recognition.lang = document.getElementById('voice').options[0].value;
     recognition.start();
     showInfo('Click the Allow button above to enable your microphone.');
     start_timestamp = new Date(); // get timestamp

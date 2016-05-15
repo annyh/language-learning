@@ -12,21 +12,36 @@
 <body>
     <div id='container'>
         <h1>Pronunciation practice</h1>
-        <textarea class='boxsizingBorder'>Eine Katze und eine Maus schließen Bekanntschaft.</textarea>
-        <div id="info">
-            <!-- use for success/fail/help messages -->
+        <textarea class='boxsizingBorder' id="pronounce_txt">
+            Eine Katze und eine Maus schließen Bekanntschaft.
+        </textarea>
+        <div id='prononciation'>
+            <div id="info">
+                <!-- use for success/fail/help messages -->
+            </div>
+            <div id="div_start">
+                <button id="start_button">
+                    <i id='speaker_icon' class="fa fa-microphone-slash fa-5x" aria-hidden="true"></i>
+                </button>
+            </div>
+            <label for="voice">Voice:</label>
+            <select id="voice">
+            </select>
         </div>
-        <div id="div_start">
-            <button id="start_button">
-                <i id='speaker_icon' class="fa fa-microphone-slash fa-5x" aria-hidden="true"></i>
-            </button>
+                <div>
+    <div class="field-wrapper">
+        <label for="rate">Rate (0.1 - 10):</label>
+        <input type="number" id="rate" min="0.1" max="10" value="1" step="any"> </div>
+    <div class="field-wrapper">
+        <label for="pitch">Pitch (0.1 - 2):</label>
+        <input type="number" id="pitch" min="0.1" max="2" value="1" step="any"> </div>
+    <button id='speaker-button' class='speaker-button'>
+        <i class="fa fa-volume-off fa-5x" id='speaker-icon' aria-hidden="true"></i>
+    </button>
         </div>
-        <select id="select_language" onchange="updateCountry()">
-        </select>&nbsp;&nbsp;
-        <select id="select_dialect">
-        </select>
     </div>
     <script src="microphone.js"></script>
+    <script src="speaker.js"></script>
 </body>
 
 </html>
