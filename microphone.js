@@ -64,7 +64,7 @@ if (!('webkitSpeechRecognition' in window)) {
     if (event.error == 'not-allowed') {
       if (event.timeStamp - start_timestamp < 100) {
         showInfo('Permission to use microphone is blocked. To change, go to' +
-        'chrome://settings/contentExceptions#media-stream');
+        ' chrome://settings/contentExceptions#media-stream');
       } else {
         showInfo('Permission to use microphone was denied.');
       }

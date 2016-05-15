@@ -1,84 +1,38 @@
-
 <!DOCTYPE html>
 <html class="no-js consumer" lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-    <title>
-      Chrome Browser
-    </title>
-    <!-- TODO: trim these styles -->
-    <style>
-    #info {
-    font-size: 20px;
-    }
-    #headline {
-    text-decoration: none
-    }
-    #results {
-    font-size: 14px;
-    font-weight: bold;
-    border: 1px solid #ddd;
-    padding: 15px;
-    text-align: left;
-    min-height: 150px;
-    }
-    .interim {
-    color: gray;
-    }
-    .final {
-    color: black;
-    padding-right: 3px;
-    }
-    .button {
-    display: none;
-    }
-    .marquee {
-    margin: 20px auto;
-    }
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <title>Pronounciation Practice</title>
+    <link rel="stylesheet" type="text/css" href="page.css">
+</head>
 
-    #buttons {
-    margin: 10px 0;
-    position: relative;
-    top: -50px;
-    }
-
-    #copy {
-    margin-top: 20px;
-    }
-
-    #copy > div {
-    display: none;
-    margin: 0 70px;
-    }
-    </style>
-    <style>
-a.c1 {font-weight: normal;}
-    </style>
-  </head>
-  <body>
-  <h1>
-    <a class="c1" href="http://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html">Web
-    Speech API</a> Demonstration
+<body>
+    <div id='container'>
+        <h1>Test your pronunciation with the <a href="http://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html">Web Speech API</a>
   </h1>
-  <textarea>Eine Katze und eine Maus schließen Bekanntschaft.</textarea>
-    <div id="info">
+        <textarea class='boxsizingBorder'>Eine Katze und eine Maus schließen Bekanntschaft.</textarea>
+        <div id="info">
+        </div>
+        <div id="div_start">
+            <button id="start_button">
+                <i class="fa fa-microphone fa-5x" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div id="results">
+            <span class="final" id="final_span"></span> <span class="interim" id="interim_span"></span>
+        </div>
+        <select id="select_language" onchange="updateCountry()">
+        </select>&nbsp;&nbsp;
+        <select id="select_dialect">
+        </select>
+        <p>
+            <a href="https://www.google.com/intl/en/chrome/demos/speech.html"></a>
+        </p>
     </div>
-    <div id="div_start">
-      <button id="start_button">
-        <i class="fa fa-s fa-5x" aria-hidden="true"></i>
-      </button>
-    </div>
-    <div id="results">
-      <span class="final" id="final_span"></span> <span class="interim" id=
-      "interim_span"></span>
-    </div>
-    <select id="select_language" onchange="updateCountry()">
-      </select>&nbsp;&nbsp; <select id="select_dialect">
-      </select>
-
-    <p><a href="https://www.google.com/intl/en/chrome/demos/speech.html"></a></p>
     <script src="microphone.js"></script>
-  </body>
+</body>
+
 </html>
