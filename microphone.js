@@ -34,9 +34,9 @@ function updateCountry() {
 
 var final_transcript = '';
 var recognizing = false;
-var ignore_onend;
 var start_timestamp;
-var start_button = document.getElementById("start_button");
+var start_button = document.getElementById('start_button');
+
 if (!('webkitSpeechRecognition' in window)) {
     upgrade();
 } else {
@@ -54,13 +54,11 @@ if (!('webkitSpeechRecognition' in window)) {
         if (event.error == 'no-speech') {
             turnMicrophoneOn(false);
             showInfo('No speech was detected. You may need to adjust your microphone settings');
-            ignore_onend = true;
         }
         if (event.error == 'audio-capture') {
             turnMicrophoneOn(false);
             showInfo('No microphone was found. Ensure that a microphone is installed and that  ' +
                 'the microphone is configured correctly');
-            ignore_onend = true;
         }
         if (event.error == 'not-allowed') {
             if (event.timeStamp - start_timestamp < 100) {
@@ -69,7 +67,6 @@ if (!('webkitSpeechRecognition' in window)) {
             } else {
                 showInfo('Permission to use microphone was denied.');
             }
-            ignore_onend = true;
         }
     };
 
@@ -80,7 +77,6 @@ if (!('webkitSpeechRecognition' in window)) {
             return;
         }
         var text = removePunctuation(window.getSelection().toString());
-        console.log('final transcript is:', final_transcript, 'expected ', text);
         doGrade(final_transcript, text);
     };
 
@@ -124,12 +120,12 @@ function doGrade(actual, expected) {
             return this.replace(/^\s+/, '').replace(/\s+$/, '');
         };
     }
-    console.log('MATCH? ', actual.trim() === expected.trim());
-
-    var final_message = actual.trim() === expected.trim() ?
-        'SUCESS!' : 'Not quite. Try speaking the highlighted part again.';
-    // TODO: move this to where output won't be changed
-    showInfo(final_message);
+    if (actual.trim() === expected.trim()) {
+        showMessage('SUCESS!', true);
+    } else {
+        showMessage('Not quite. Received ' + actual +
+            '. Try reading the highlighted part again.', false);
+    }
 }
 
 function upgrade() {
@@ -168,14 +164,26 @@ start_button.onclick = function() {
     final_transcript = '';
     recognition.lang = select_dialect.value;
     recognition.start();
-    ignore_onend = false;
-    showInfo('Click the "Allow" button above to enable your microphone.');
+    showInfo('Click the Allow button above to enable your microphone.');
     start_timestamp = new Date(); // get timestamp
+}
+
+// use only for success/fail messages.
+// show font-icon depending on bool: true for correct, false for incorrect
+function showMessage(s, bool) {
+    var info_bar = document.getElementById('info');
+    var font_icon = document.createElement('i');
+    var className = bool ?
+        'fa fa-check-circle-o fa correct' :
+        'fa fa-exclamation-circle fa incorrect';
+
+    font_icon.setAttribute('class', className);
+    font_icon.innerHTML = s;
+    info_bar.innerHTML = '';
+    info_bar.appendChild(font_icon);
 }
 
 function showInfo(s) {
     var info_bar = document.getElementById('info');
-    info_bar.style.visibility = 'visible';
     info_bar.innerHTML = s;
-    console.log('******************* showInfo RECEIVED ', s)
 }

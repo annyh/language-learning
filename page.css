@@ -15,6 +15,10 @@ h1 {
     padding: 20px 0 10px 0;
 }
 
+i {
+    font-family: FontAwesome;
+    font-style: normal
+}
 #info {
     font-size: 20px;
 }
@@ -28,23 +32,12 @@ h1 {
     min-height: 150px;
 }
 
-.interim {
-    color: gray;
+.incorrect {
+    color: #d43f3a;
 }
 
-.final {
-    color: black;
-    padding-right: 3px;
-}
-
-.button {
-    display: none;
-}
-
-#buttons {
-    margin: 10px 0;
-    position: relative;
-    top: -50px;
+.correct {
+    color: #4cae4c;
 }
 
 textarea {
